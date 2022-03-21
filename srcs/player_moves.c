@@ -1,17 +1,17 @@
+#include "cub3d.h"
+
 int	move_player(int next_x, int next_y, t_game *game)
 {
 	if ((game->map[next_y][next_x]) == '1' ||
-			((game->map[next_y][next_x] == 'E')
-			&& (game->player.collectibles < game->total_collectibles)))
+			((game->map[next_y][next_x] == 'E')))
 		return (0);
-	winning_winner_looser(next_x, next_y, game);
 	game->player.orientation_x = next_x - game->player.curr_x;
 	game->player.orientation_y = next_y - game->player.curr_y;
 	game->player.curr_x = next_x;
 	game->player.curr_y = next_y;
 	game->map[game->player.curr_y][game->player.curr_x] = 'P';
-	game->player.n_moves++;
-	printf("Number of moves : %d\n", game->player.n_moves);
+//	game->player.n_moves++;
+//	printf("Number of moves : %d\n", game->player.n_moves);
 	game->map[game->player.prev_y][game->player.prev_x] = '0';
 	game->player.prev_x = game->player.curr_x;
 	game->player.prev_y = game->player.curr_y;

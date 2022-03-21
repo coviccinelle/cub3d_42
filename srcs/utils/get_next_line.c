@@ -1,3 +1,5 @@
+#include "cub3d.h"
+
 char	*ft_init_gnl(int fd, char *line, char *buf, int *ret)
 {
 	if ((BUFFER_SIZE <= 0) || (fd < 0))

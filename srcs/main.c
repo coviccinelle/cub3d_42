@@ -1,3 +1,5 @@
+#include "cub3d.h"
+
 void	init_values(t_game *game)
 {
 	game->mlx.ptr = NULL;

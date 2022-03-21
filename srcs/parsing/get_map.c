@@ -1,3 +1,5 @@
+#include "cub3d.h"
+
 void	del(char **str)
 {
 	if (str && (*str))

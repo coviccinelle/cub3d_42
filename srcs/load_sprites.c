@@ -1,3 +1,5 @@
+#include "cub3d.h"
+
 void	load_img(t_game *game, t_img *img, char *path)
 {
 	img->xpm = mlx_xpm_file_to_image(game->mlx.ptr, path,

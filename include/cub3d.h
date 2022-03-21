@@ -131,4 +131,11 @@ void	read_map(char *map_file, t_game *game);
 void	view_tab(char **s);
 char	*ft_strchr(const char *str, int c);
 void	check_map(t_game *game);
+
+int     ft_find(char c, const char *str);
+void	*ft_memcpy(char *dst, char *src, int n);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_del(char *str);
+char	*ft_substr(char *s, int start, int len);
+
 #endif

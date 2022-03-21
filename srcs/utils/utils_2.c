@@ -1,3 +1,5 @@
+#include "cub3d.h"
+
 int	ft_find(char c, const char *str)
 {
 	int	i;

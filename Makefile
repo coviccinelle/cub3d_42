@@ -1,8 +1,12 @@
 NAME	=	cub3d
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+PATH_MLX	=	mlx
+CFLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
+				-Wl,-rpath=./bass/,-rpath=./mlx/,-rpath=./delay/
+INC = -I ./include
 RM		=	rm -rf
-SRC		=	srcs/main.c \
+SRCS		=	srcs/main.c \
 			srcs/exit.c \
 			srcs/load_sprites.c \
 			srcs/main.c \
@@ -15,10 +19,7 @@ SRC		=	srcs/main.c \
 			srcs/get_next_line.c \
 
 
-OBJDIR = objs
-SRCDIR = srcs
-
-OBJ = $(addprefix ${OBJDIR}/, ${SRC:.c=.o})
+OBJS		=	$(SRCS:.c=.o)
 
 .SILENT:
 SHELL	:= bash
@@ -33,9 +34,10 @@ CPURPLE	= \033[0;35m
 B 	=	$(shell tput bold)
 D =		$(shell tput sgr0)
 
-
-all: TITLE launch $(NAME)
-	@printf "\n$(B)$(CCYAN)$(NAME) compiled$(D)\n\n"
+all:		TITLE $(NAME)
+			@rm ${OBJS}
+			printf "${CYELLOW} \n"
+			@echo The fabulouly ugly game Cub3d has been complied!
 
 TITLE:
 	printf "${CRED}  _   ${CGRIS} _     ${CYELLOW}_  ${CGREEN}    ${CCYAN}       ${CBLUE} _     ${CPURPLE}     ${CRED}      \n"
@@ -64,19 +66,13 @@ endef
 $(NAME):	$(OBJS)
 			@make -C mlx
 			$(CC) ${CFLAGS} -o $(NAME) ${OBJS} ${FLAGS}
-			@printf "${B}${CWHITE}]\n"
-
-${OBJDIR}/%.o:${SRCDIR}/%.c
-	@mkdir -p ${@D}
-	@$(CC) $(CFLAGS) -c $< -o $@
-	printf "█"
 
 launch:
 	$(call progress_bar)
 
 clean:
 	$(RM) $(OBJDIR)
-	@echo "$(B)Cleared$(D)"
+	@echo "[ ✅ ] $(B)Cleared$(D)"
 
 fclean:			clean
 	$(RM) $(NAME) ${RM} objects
