@@ -6,18 +6,18 @@ FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 				-Wl,-rpath=./bass/,-rpath=./mlx/,-rpath=./delay/
 INC = -I ./include
 RM		=	rm -rf
-SRCS		=	srcs/main.c \
-			srcs/exit.c \
-			srcs/load_sprites.c \
-			srcs/main.c \
-			srcs/player_moves.c \
-			srcs/utils/utils_1.c \
-			srcs/utils/utils_2.c \
-			srcs/window_handling.c \
-			srcs/get_map.c \
-			srcs/check_map.c \
-			srcs/get_next_line.c \
-
+SRCS    =srcs/check_map.c \
+                srcs/main.c \
+                srcs/get_next_line.c \
+                srcs/window.c \
+                srcs/player_moves.c \
+                srcs/draw_textures.c \
+                srcs/draw_textures2.c \
+                srcs/utils.c \
+                srcs/utils_maths.c \
+                srcs/utils_free_exit.c \
+                srcs/utils_get_next_line.c \
+                srcs/get_map.c
 
 OBJS		=	$(SRCS:.c=.o)
 
