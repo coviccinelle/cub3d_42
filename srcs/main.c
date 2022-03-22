@@ -11,11 +11,12 @@ void	init_values(t_game *game)
 	game->wall.xpm = 0;
 	game->collectible.xpm = 0;
 	game->exit.xpm = 0;
-	game->pacman_left.xpm = 0;
-	game->pacman_right.xpm = 0;
-	game->pacman_up.xpm = 0;
-	game->pacman_down.xpm = 0;
+	game->player_left.xpm = 0;
+	game->player_right.xpm = 0;
+	game->player_up.xpm = 0;
+	game->player_down.xpm = 0;
 }
+
 
 int	main(int ac, char **av)
 {
@@ -26,8 +27,8 @@ int	main(int ac, char **av)
 	{
         read_map(av[1], &game);
 		check_map(&game);
-		init_game(&game);
-		display_game(game);
+		//init_game(&game);
+	//	display_game(game);
 
         /*
 		get_rightfile(av, &game);

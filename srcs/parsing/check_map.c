@@ -4,6 +4,7 @@ void	check_map(t_game *game)
 // il doit y avoir 1 joueur, ni plus ni moins
 //pas de caractere autre que : 1 P 
 // F ou C mauvaise donnee?
+//so basically you see a very big room, with a wall around it (the values 1), a small room inside it (the values 2), a few pilars (the values 3), and a corridor with a room (the values 4)
 }
 
 // a revoir ci-dessous:

@@ -1,7 +1,7 @@
 NAME	=	cub3d
 CC		=	gcc
 PATH_MLX	=	mlx
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror $(INC)
 FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 				-Wl,-rpath=./bass/,-rpath=./mlx/,-rpath=./delay/
 INC = -I ./include

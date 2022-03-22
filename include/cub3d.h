@@ -59,6 +59,7 @@ typedef struct s_player
 	int	curr_y;
 	int	collectibles;
 	int	n_moves;
+	//A first few variables are declared: posX and posY represent the position vector of the player, dirX and dirY represent the direction of the player, and planeX and planeY the camera plane of the player. Make sure the camera plane is perpendicular to the direction, but you can change the length of it.
 }				t_player;
 
 typedef struct s_game

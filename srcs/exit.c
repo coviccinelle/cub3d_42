@@ -36,12 +36,12 @@ void	free_sprites(t_game *game)
 		mlx_destroy_image(game->mlx.ptr, game->collectible.xpm);
 	if (game->exit.xpm && game->mlx.ptr)
 		mlx_destroy_image(game->mlx.ptr, game->exit.xpm);
-	if (game->pacman_left.xpm && game->mlx.ptr)
-		mlx_destroy_image(game->mlx.ptr, game->pacman_left.xpm);
-	if (game->pacman_right.xpm && game->mlx.ptr)
-		mlx_destroy_image(game->mlx.ptr, game->pacman_right.xpm);
-	if (game->pacman_up.xpm && game->mlx.ptr)
-		mlx_destroy_image(game->mlx.ptr, game->pacman_up.xpm);
-	if (game->pacman_down.xpm && game->mlx.ptr)
-		mlx_destroy_image(game->mlx.ptr, game->pacman_down.xpm);
+	if (game->player_left.xpm && game->mlx.ptr)
+		mlx_destroy_image(game->mlx.ptr, game->player_left.xpm);
+	if (game->player_right.xpm && game->mlx.ptr)
+		mlx_destroy_image(game->mlx.ptr, game->player_right.xpm);
+	if (game->player_up.xpm && game->mlx.ptr)
+		mlx_destroy_image(game->mlx.ptr, game->player_up.xpm);
+	if (game->player_down.xpm && game->mlx.ptr)
+		mlx_destroy_image(game->mlx.ptr, game->player_down.xpm);
 }
