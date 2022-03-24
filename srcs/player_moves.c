@@ -6,7 +6,7 @@
 /*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:33:07 by mloubet           #+#    #+#             */
-/*   Updated: 2022/01/06 00:09:23 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/03/24 17:19:26 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,14 @@ int	move_player(int next_x, int next_y, t_game *game)
 	game->player.orientation_y = next_y - game->player.curr_y;
 	game->player.curr_x = next_x;
 	game->player.curr_y = next_y;
-	game->map[game->player.curr_y][game->player.curr_x] = 'P';
+	int curry = game->player.curr_y;
+	int currx = game->player.curr_x;
+	game->map[curry][currx] = 'P';
 	game->player.n_moves++;
 	printf("Number of moves : %d\n", game->player.n_moves);
-	game->map[game->player.prev_y][game->player.prev_x] = '0';
+	int	prevy = game->player.prev_y;
+	int prevx = game->player.prev_x;
+	game->map[prevy][prevx] = '0';
 	game->player.prev_x = game->player.curr_x;
 	game->player.prev_y = game->player.curr_y;
 	return (0);

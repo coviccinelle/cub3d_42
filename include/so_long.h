@@ -6,7 +6,7 @@
 /*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:54:28 by mloubet           #+#    #+#             */
-/*   Updated: 2022/03/21 18:38:39 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/03/24 17:20:13 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ typedef struct s_player
 {
 	int	orientation_x;
 	int	orientation_y;
-	int	prev_x;
-	int	prev_y;
-	int	curr_x;
-	int	curr_y;
+	double	prev_x;
+	double	prev_y;
+	double	curr_x;
+	double	curr_y;
 	int	collectibles;
 	int	n_moves;
 }				t_player;

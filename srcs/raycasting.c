@@ -23,5 +23,28 @@ II/ if ray finally hits a wall, calculate the distance and draw the wall with th
  In a true 3D engine, there's also a camera plane, and there this plane is really a 3D plane so two vectors (u and v) are required to represent it. 
  Raycasting happens in a 2D map however, so here the camera plane isn't really a plane, but a line, and is represented with a single vector.
   The camera plane should always be perpendicular on the direction vector. The camera plane represents the surface of the computer screen, while the direction vector is perpendicular on it and points inside the screen.
-   The position of the player, which is a single point, is a point in front of the camera plane. 
+   The position of the player, which is a single point, is a point in front of the camera plane.
  A certain ray of a certain x-coordinate of the screen, is then the ray that starts at this player position, and goes through that position on the screen or thus the camera plane.
+
+
+ void	draw_line_bresenhaim(int x1, int y1, int x2, int y2)
+{
+	x = x1;
+	y = y1;
+	dx = x2 - x1;
+	dy = y2 - y1;
+	p = 2dx - 2dy;
+	while (x <= x2)
+	{
+		mlx_pixel_put(game->mlx.ptr, game->mlx.win, x, y, color);
+		x++;
+		if (p < 0)
+			p = p + 2dy;
+		else
+		{
+			p = p + 2dy - 2dx;
+			y++;
+		}
+	}
+}
+
