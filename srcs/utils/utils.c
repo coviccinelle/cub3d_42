@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mloubet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:13:55 by mloubet           #+#    #+#             */
-/*   Updated: 2022/01/03 17:30:30 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/03/25 17:19:35 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,18 @@ int	is_found(int c, char *s)
 			return (1);
 	}
 	return (0);
+}
+
+int	find_me(int c, char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

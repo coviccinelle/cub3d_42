@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mloubet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:10:43 by mloubet           #+#    #+#             */
-/*   Updated: 2022/01/09 17:26:52 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/03/25 17:34:02 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int	is_rectangular(char **line, int ymax, int xmax)
 	return (1);
 }
 
+// The map must be composed of only 6 possible characters:
+// 0 for an empty space,
+// 1 for a wall
+// and N,S,E or W for the player’s start position and spawning orientation.
+// north - south - east - west
+// 2 for sprite (bonus)
 int	right_chars(char **map, int e, int c1, int p)
 {
 	int	l;
@@ -39,22 +45,26 @@ int	right_chars(char **map, int e, int c1, int p)
 		c = -1;
 		while (map[l][++c])
 		{
-			if ((map[l][c] != '0') && (map[l][c] != '1')
-			&& (map[l][c] != 'C') && (map[l][c] != 'P') && (map[l][c] != 'E'))
+			if (!find_me(map[l][c], "01NSEW"))
 				return (0);
-			if (map[l][c] == 'E')
-				e++;
-			else if (map[l][c] == 'C')
-				c1++;
-			else if (map[l][c] == 'P')
-				p++;
+			// if (map[l][c] == 'E')
+			// 	e++;
+			(void)e;
+			(void)c1;
+			// else if (map[l][c] == 'C')
+			// 	c1++;
+			if (find_me(map[l][c], "NEWS")
+			 	p++;
 		}
 	}
-	if ((e < 1) || (c1 < 1) || (p != 1))
+	if (p != 1)
 		return (0);
 	return (1);
 }
 
+// check if map is surrounded by only walls = 1
+// check around every 0 and player NEWS
+//  if (map[x][y] == 0 || map[x][y] == "NEWS") -> if x
 int	walls(char **map, int ymax, int xmax)
 {
 	int	y;

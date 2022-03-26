@@ -13,10 +13,10 @@ SRCS    =srcs/check_map.c \
                 srcs/player_moves.c \
                 srcs/draw_textures.c \
                 srcs/draw_textures2.c \
-                srcs/utils.c \
-                srcs/utils_maths.c \
-                srcs/utils_free_exit.c \
-                srcs/utils_get_next_line.c \
+                srcs/utils/utils.c \
+                srcs/utils/utils_maths.c \
+                srcs/utils/utils_free_exit.c \
+                srcs/utils/utils_get_next_line.c \
                 srcs/get_map.c
 
 OBJS		=	$(SRCS:.c=.o)

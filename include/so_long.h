@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:54:28 by mloubet           #+#    #+#             */
-/*   Updated: 2022/03/24 17:20:13 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/03/25 17:20:10 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,5 +146,8 @@ void			get_map(int fd, t_game *game);
 
 void			draw_color(int startx, int starty, int x, int y, unsigned int color_c , t_game *game);
 unsigned int	create_trgb(int t, int r, int g, int b);
+
+// *** utils *** //
+int				find_me(int c, char *str);
 
 #endif
