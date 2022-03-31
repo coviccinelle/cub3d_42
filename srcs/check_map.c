@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:10:43 by mloubet           #+#    #+#             */
-/*   Updated: 2022/03/27 20:05:55 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/03/31 11:24:53 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	right_chars(char **map, int e, int c1, int p)
 			(void)c1;
 			// else if (map[l][c] == 'C')
 			// 	c1++;
-			if (find_me(map[l][c], "NEWS")
+			if (find_me(map[l][c], "NEWS"))
 			 	p++;
 		}
 	}
