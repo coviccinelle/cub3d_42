@@ -1,6 +1,3 @@
-INC=/usr/include
-HT=Linux
-DOCP=do_cp
 ##
 ## Makefile for MiniLibX in /home/boulon/work/c/raytraceur/minilibx
 ## 
@@ -14,6 +11,9 @@ DOCP=do_cp
 ## Please use configure script
 
 
+INC	=%%%%
+HT	=%%%%
+DOCP	=%%%%
 
 CC	= gcc
 

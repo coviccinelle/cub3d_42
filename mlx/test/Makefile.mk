@@ -1,8 +1,6 @@
-INC=/usr/include
-HT=Linux
-DOCP=do_cp
 
 
+INC=%%%%
 
 INCLIB=$(INC)/../lib
 
