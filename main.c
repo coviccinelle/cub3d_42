@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:51:38 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 12:13:40 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:45:08 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	run_mlx(t_game *game)
 	game->mlx.win = mlx_new_window(game->mlx.ptr, game->win_width, \
 	game->win_height, "Cub3D");
 	mlx_loop_hook(game->mlx.ptr, render_next_frame, game);
-	mlx_hook(game->mlx.win, 2, 1L << 0, ft_key_hook, game);
-	mlx_hook(game->mlx.win, 3, 1L << 1, ft_key_unhook, game);
-	mlx_hook(game->mlx.win, 33, 1L << 5, exit_free, game);
+	mlx_hook(game->mlx.win, KeyPress, KeyPressMask	, ft_key_hook, game);
+	mlx_hook(game->mlx.win, KeyRelease, KeyReleaseMask, ft_key_unhook, game);
+	mlx_hook(game->mlx.win, ClientMessage, 	LeaveWindowMask, exit_free, game);
 	game->mlx.img = mlx_new_image(game->mlx.ptr, game->win_width, \
 	game->win_height);
 	game->mlx.addr = mlx_get_data_addr(game->mlx.img, \
@@ -69,13 +69,14 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
+	game = (t_game){0};
 	init_struct(&game);
 	if (!parsing(ac, av, &game))
-		return (0);
+		return (EXIT_FAILURE);
 	init_player(&game);
 	run_mlx(&game);
 	free_map(&game);
 	free_textures(&game);
-	return (1);
+	return (EXIT_SUCCESS);
 }
 	//print_info(&game);

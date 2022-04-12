@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:59:00 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 11:27:12 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:34:47 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	get_map_size(int fd, t_game *game)
 		free(line);
 		line = get_next_line_2(fd);
 	}
+	game->map[i] = NULL;
 	del(&line);
 	game->map_height = i;
 	if (game->map_height == 1024)

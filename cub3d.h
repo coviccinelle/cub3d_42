@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 20:56:36 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 11:20:15 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:38:28 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include <X11/X.h>
+# include <stdbool.h>
 
 # define BUFFER_SIZE 4095
 
@@ -37,17 +39,27 @@
 # define KEY_TURN_RIGHT 65361
 # define KEY_ESCAPE 65307
 
-typedef struct s_img {
-	char	*path;
-	void	*img;
-	char	*add;
+typedef struct s_img	t_img;
+
+enum e_image
+{
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST,
+};
+
+struct s_img {
+	char	*path;// malloc
+	void	*img;// malloc
+	char	*add;// osef
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
 
 	int		width;
 	int		height;
-}				t_img;
+};
 
 typedef struct s_camera {
 	double			plane_x;
@@ -86,9 +98,9 @@ typedef struct s_player {
 
 typedef struct s_mlx
 {
-	void	*ptr;
-	void	*win;
-	void	*img;
+	void	*ptr;//malloc
+	void	*win;//malloc
+	void	*img;//malloc
 	char	*addr;
 
 	int		bits_per_pixel;
@@ -113,7 +125,7 @@ typedef struct s_game
 	int				over;
 	int				win_width;
 	int				win_height;
-	char			*map[1024];
+	char			*map[1024];// malloc
 	int				map_width;
 	int				map_height;
 	t_mlx			mlx;

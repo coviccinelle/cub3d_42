@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:13:17 by mloubet           #+#    #+#             */
-/*   Updated: 2022/04/12 11:25:57 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:44:27 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,54 @@ void	free_textures(t_game *game)
 	{
 		if (game->img[i].path)
 			free(game->img[i].path);
+		mlx_destroy_image(game->mlx.ptr, game->img[i].img);
 	}
 }
 
-int	exit_free(t_game *game)
+
+void	free_img(void *mlx, t_img *img)
 {
+	free(img->path);
+	mlx_destroy_image(mlx, img->img);
+}
+
+void	tmp(t_game *game)
+{
+	// if (game->map)
 	free_map(game);
-	free_textures(game);
-	if (game->mlx.ptr && game->mlx.img)
-		mlx_destroy_image(game->mlx.ptr, game->mlx.img);
-	if (game->mlx.ptr && game->mlx.win)
+	if (game->img[NORTH].img)
+		free_img(game->mlx.ptr, &game->img[NORTH]);
+	if (game->img[SOUTH].img)
+		free_img(game->mlx.ptr, &game->img[SOUTH]);
+	if (game->img[WEST].img)
+		free_img(game->mlx.ptr, &game->img[WEST]);
+	if (game->img[EAST].img)
+		free_img(game->mlx.ptr, &game->img[EAST]);
+	if (game->mlx.win)
 		mlx_destroy_window(game->mlx.ptr, game->mlx.win);
+	if (game->mlx.win)
+		mlx_destroy_image(game->mlx.ptr, game->mlx.img);
 	if (game->mlx.ptr)
 	{
 		mlx_destroy_display(game->mlx.ptr);
 		free(game->mlx.ptr);
 	}
+}
+
+int	exit_free(t_game *game)
+{
+	tmp(game);
+// 	free_map(game);
+// 	free_textures(game);
+// 	if (game->mlx.ptr && game->mlx.img)
+// 		mlx_destroy_image(game->mlx.ptr, game->mlx.img);
+// 	if (game->mlx.ptr && game->mlx.win)
+// 		mlx_destroy_window(game->mlx.ptr, game->mlx.win);
+// 	if (game->mlx.ptr)
+// 	{
+// 		mlx_destroy_display(game->mlx.ptr);
+// 		free(game->mlx.ptr);
+// 	}
 	exit(0);
 }
 

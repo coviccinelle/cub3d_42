@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:47:28 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/10 20:36:35 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/12 19:03:37 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	check_map_file_name(int ac, char **av, int fd)
 		return (ft_puterror("Map name errored (not .cub extension)"));
 	if (fd < 0)
 		return (ft_puterror("Operation file corrupted"));
-	return (0);
+	return (false);
 }
