@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:47:26 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 11:25:53 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:11:55 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,17 @@ void	draw_color(int start_y, int end_y, unsigned int color, t_game *game)
 		i = -1;
 		while (++i <= game->win_width)
 			my_pixel_put(game, i, j, color);
+	}
+}
+
+void	free_map(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i <= game->map_height)
+	{
+		if (game->map[i])
+			free(game->map[i]);
 	}
 }

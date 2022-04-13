@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:00:03 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 14:29:44 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:21:32 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,6 @@ int	is_err(char c)
 	return (0);
 }
 
-int	is_0(char c)
-{
-	if (!find_me(c, "10NEWS"))
-		return (0);
-	return (1);
-}
-
 // a function to check aroud every 0 -> every space '0' need to be 
 // covered with another valid
 // character as 01NEWS and not an espace or anthing else
@@ -85,22 +78,6 @@ void	check_around(char c, int i, int j, t_game *game)
 }
 	// a player needs to be surrounded by only wall 1 or space 0
 	// around player is not an espace and not player -> only 0 or 1
-
-int	is_blank(char *line)
-{
-	int	i;
-
-	i = 0;
-	if (!line)
-		return (1);
-	while (line[0])
-	{
-		if (line[i] != ' ')
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 //	4th function to check_map_body => careful with spaces and empty lines
 void	check_map_body(t_game *game)

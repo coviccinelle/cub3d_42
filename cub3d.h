@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 20:56:36 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 14:50:43 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:22:03 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ enum e_image
 };
 
 struct s_img {
-	char	*path;// malloc
-	void	*img;// malloc
-	char	*add;// osef
+	char	*path;
+	void	*img;
+	char	*add;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
@@ -98,9 +98,9 @@ typedef struct s_player {
 
 typedef struct s_mlx
 {
-	void	*ptr;//malloc
-	void	*win;//malloc
-	void	*img;//malloc
+	void	*ptr;
+	void	*win;
+	void	*img;
 	char	*addr;
 
 	int		bits_per_pixel;
@@ -125,7 +125,7 @@ typedef struct s_game
 	int				over;
 	int				win_width;
 	int				win_height;
-	char			*map[1024];// malloc
+	char			*map[1024];
 	int				map_width;
 	int				map_height;
 	t_mlx			mlx;
@@ -163,6 +163,8 @@ int				check_map_file_name(int ac, char **av, int fd);
 void			stock_bckr_info(t_game *game, int fd, char *line);
 void			stock_map(t_game *game, int fd);
 void			check_map_body(t_game *game);
+int				is_blank(char *line);
+int				is_0(char c);
 
 //gnl
 int				ft_find(char c, const char *str);

@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:10:27 by mloubet           #+#    #+#             */
-/*   Updated: 2022/04/13 14:57:41 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:21:07 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@ void	exception(t_game *game, char *str, int *i)
 		free(str);
 		ft_puterror_exit("Wrong char in map header", game);
 	}
+}
+
+int	atoi_bis(int *i, int nbr, char *str)
+{
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		nbr = nbr * 10 + str[*i] - '0';
+		(*i)++;
+	}
+	return (nbr);
 }
 
 int	atoi_i_pars(char *str, int *i, t_game *game)
@@ -41,12 +51,16 @@ int	atoi_i_pars(char *str, int *i, t_game *game)
 	}
 	mark = *i;
 	while (str[*i] >= '0' && str[*i] <= '9')
-	{
-		nbr = nbr * 10 + str[*i] - '0';
-		(*i)++;
-	}
+		nbr = atoi_bis(i, nbr, str);
 	if (mark == *i)
 		return (-1);
 	game->o = (*i);
 	return (nbr * sign);
+}
+
+int	is_0(char c)
+{
+	if (!find_me(c, "10NEWS"))
+		return (0);
+	return (1);
 }

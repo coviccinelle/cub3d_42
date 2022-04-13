@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:51:38 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 11:39:00 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:18:47 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	run_mlx(t_game *game)
 	if (!game->mlx.win)
 		ft_puterror_exit("mlx win init failed", game);
 	mlx_loop_hook(game->mlx.ptr, render_next_frame, game);
-	mlx_hook(game->mlx.win, KeyPress, KeyPressMask	, ft_key_hook, game);
+	mlx_hook(game->mlx.win, KeyPress, KeyPressMask, ft_key_hook, game);
 	mlx_hook(game->mlx.win, KeyRelease, KeyReleaseMask, ft_key_unhook, game);
-	mlx_hook(game->mlx.win, ClientMessage, 	LeaveWindowMask, exit_free, game);
+	mlx_hook(game->mlx.win, ClientMessage, LeaveWindowMask, exit_free, game);
 	game->mlx.img = mlx_new_image(game->mlx.ptr, game->win_width, \
 	game->win_height);
 	game->mlx.addr = mlx_get_data_addr(game->mlx.img, \
