@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:10:27 by mloubet           #+#    #+#             */
-/*   Updated: 2022/04/12 11:54:16 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:57:41 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int	atoi_i_pars(char *str, int *i, t_game *game)
 	}
 	if (mark == *i)
 		return (-1);
+	game->o = (*i);
 	return (nbr * sign);
 }

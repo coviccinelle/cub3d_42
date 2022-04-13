@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 20:56:36 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 16:38:28 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:50:43 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ typedef struct s_game
 	unsigned int	nb_p;
 	double			dist_wall;
 	double			wall_hit;
+	int				o;
 }				t_game;
 
 //utils

@@ -4,7 +4,7 @@ SO ./visual/exit.xpm
 WE ./visual/wall_big_yellow_duck.xpm
 EA ./visual/coll.xpm
 
-F 177, 156, 217
+F 177, 156, 255
 C 251, 197, 180
 
         111111111111111111111111111111111111111111111111111111111111111

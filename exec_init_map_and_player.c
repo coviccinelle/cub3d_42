@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:26:23 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 11:24:35 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:51:27 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	init_struct(t_game *game)
 	game->map_height = 0;
 	game->map_width = 0;
 	game->ray.hit = 0;
+	game->o = 0;
 	while (++i < 4)
 		game->img[i].path = 0;
 }
