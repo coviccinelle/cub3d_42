@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:00:03 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 12:24:53 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:29:44 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	check_around(char c, int i, int j, t_game *game)
 	char	**m;
 
 	m = game->map;
-	if (i == 1 || i == game->map_height - 1)
+	if (i == 0 || i == game->map_height - 1)
 		check_outside_wall(game->map[i], game);
 	else if (c == '0')
 	{
@@ -71,7 +71,6 @@ void	check_around(char c, int i, int j, t_game *game)
 		(!is_0(m[i + 1][j - 1])) || !is_0(m[i + 1][j + 1]) || \
 		!is_0(m[i - 1][j + 1]) || !is_0(m[i - 1][j - 1]))
 		{
-			printf("c = |%c| map[i][j] = |%c|,  i = %d, j = %d\n", c, m[i][j], i, j);
 			ft_puterror_exit("At least one of the wall is missing", game);
 		}
 	}
@@ -87,16 +86,34 @@ void	check_around(char c, int i, int j, t_game *game)
 	// a player needs to be surrounded by only wall 1 or space 0
 	// around player is not an espace and not player -> only 0 or 1
 
+int	is_blank(char *line)
+{
+	int	i;
+
+	i = 0;
+	if (!line)
+		return (1);
+	while (line[0])
+	{
+		if (line[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 //	4th function to check_map_body => careful with spaces and empty lines
 void	check_map_body(t_game *game)
 {
 	int		i;
 	int		j;
 
-	i = 0;
-	while (i < game->map_height)
+	i = -1;
+	while (++i < game->map_height)
 	{
 		j = 0;
+		if (game->map[i] && is_blank(game->map[i]) && (i != 0))
+			ft_puterror_exit("Empty line invalid (middle/beginning)", game);
 		while (game->map[i][j])
 		{
 			if (find_me(game->map[i][j], "NEWS"))
@@ -110,7 +127,6 @@ void	check_map_body(t_game *game)
 			check_around(game->map[i][j], i, j, game);
 			j++;
 		}
-		i++;
 	}
 	if (game->nb_p != 1)
 		ft_puterror_exit("Map error: wrong number of Player", game);
