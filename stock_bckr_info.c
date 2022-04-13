@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:48:46 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 14:58:48 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 15:04:35 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ void	stock_fc(t_game *game, int i, char *line)
 	red = atoi_i_pars(line, &i, game);
 	green = atoi_i_pars(line, &i, game);
 	blue = atoi_i_pars(line, &i, game);
+	if (game->o != (ft_strlen(line) -1))
+	{
+		free(line);
+		ft_puterror_exit("Right format: [R, G, B] without any char afterwards", \
+		game);
+	}
 	if (red > 255 || red < 0 || green < 0 || green > 255 \
-	|| blue < 0 || blue > 255 || game->o != (ft_strlen(line) -1))
+	|| blue < 0 || blue > 255)
 	{
 		free(line);
 		ft_puterror_exit("RGB value invalid", game);
