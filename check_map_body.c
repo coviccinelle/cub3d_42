@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:00:03 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 12:02:44 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 11:25:00 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void	check_map_body(t_game *game)
 		{
 			if (find_me(game->map[i][j], "NEWS"))
 			{
-				game->player.pos_x = j;
-				game->player.pos_y = i;
+				game->player.pos_x = j + 0.5;
+				game->player.pos_y = i + 0.5;
 				game->player.start_dir = game->map[i][j];
 				game->nb_p += 1;
 			}

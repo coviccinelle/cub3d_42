@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:13:17 by mloubet           #+#    #+#             */
-/*   Updated: 2022/04/12 16:44:27 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 11:28:31 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ void	free_textures(t_game *game)
 	while (++i < 4)
 	{
 		if (game->img[i].path)
+		{
 			free(game->img[i].path);
-		mlx_destroy_image(game->mlx.ptr, game->img[i].img);
+			if (game->img[i].img)
+				mlx_destroy_image(game->mlx.ptr, game->img[i].img);
+		}	
+		
 	}
 }
 

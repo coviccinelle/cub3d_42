@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:33:04 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 11:23:21 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 11:33:02 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	parsing(int ac, char **av, t_game *game)
 		close(fd);
 		return (0);
 	}
-	close(fd);
 	fd = 0;
 	fd = open(av[1], O_RDONLY);
 	if (check_map_file_name(ac, av, fd))

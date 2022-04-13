@@ -6,14 +6,14 @@
 #    By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 11:26:21 by thi-phng          #+#    #+#              #
-#    Updated: 2022/04/12 18:38:48 by thi-phng         ###   ########.fr        #
+#    Updated: 2022/04/13 11:27:46 by thi-phng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	cub3D
 CC		=	clang
 PATH_MLX	=	mlx
-CFLAGS		=	-Wall -Wextra -Werror $(INC) #-g3 #-fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror $(INC) -g3 #-fsanitize=address
 FLAGS		=	-ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 				-Wl,-rpath=./bass/,-rpath=./mlx/,-rpath=./delay/
 INC = -I ./include
