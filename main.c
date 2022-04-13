@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:51:38 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 16:45:08 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 11:39:00 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,13 @@ int	render_next_frame(t_game *game)
 void	run_mlx(t_game *game)
 {
 	game->mlx.ptr = mlx_init();
+	if (!game->mlx.ptr)
+		ft_puterror_exit("mlx ptr init failed", game);
 	mlx_get_screen_size(game->mlx.ptr, &(game->win_width), &(game->win_height));
 	game->mlx.win = mlx_new_window(game->mlx.ptr, game->win_width, \
 	game->win_height, "Cub3D");
+	if (!game->mlx.win)
+		ft_puterror_exit("mlx win init failed", game);
 	mlx_loop_hook(game->mlx.ptr, render_next_frame, game);
 	mlx_hook(game->mlx.win, KeyPress, KeyPressMask	, ft_key_hook, game);
 	mlx_hook(game->mlx.win, KeyRelease, KeyReleaseMask, ft_key_unhook, game);
