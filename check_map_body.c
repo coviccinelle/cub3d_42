@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:00:03 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 11:25:00 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:24:53 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ int	is_err(char c)
 	return (0);
 }
 
+int	is_0(char c)
+{
+	if (!find_me(c, "10NEWS"))
+		return (0);
+	return (1);
+}
+
 // a function to check aroud every 0 -> every space '0' need to be 
 // covered with another valid
 // character as 01NEWS and not an espace or anthing else
@@ -55,15 +62,18 @@ void	check_around(char c, int i, int j, t_game *game)
 	char	**m;
 
 	m = game->map;
-	if (i == 1 || i == game->map_height)
+	if (i == 1 || i == game->map_height - 1)
 		check_outside_wall(game->map[i], game);
-	if (c == '0')
+	else if (c == '0')
 	{
-		if ((m[i + 1][j] == ' ') || (m[i - 1][j] == ' ') || \
-		(m[i][j + 1] == ' ') || (m[i][j - 1] == ' ' ) || \
-		(m[i + 1][j - 1] == ' ') || (m[i + 1][j + 1] == ' ') || \
-		(m[i - 1][j + 1] == ' ') || (m[i - 1][j - 1] == ' '))
+		if (!is_0(m[i + 1][j]) || !is_0(m[i - 1][j]) || \
+		(!is_0(m[i][j + 1])) || (!is_0(m[i][j - 1])) || \
+		(!is_0(m[i + 1][j - 1])) || !is_0(m[i + 1][j + 1]) || \
+		!is_0(m[i - 1][j + 1]) || !is_0(m[i - 1][j - 1]))
+		{
+			printf("c = |%c| map[i][j] = |%c|,  i = %d, j = %d\n", c, m[i][j], i, j);
 			ft_puterror_exit("At least one of the wall is missing", game);
+		}
 	}
 	if (find_me(c, "NEWS"))
 	{
