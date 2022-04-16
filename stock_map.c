@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stock_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:59:00 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/12 16:34:47 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/16 14:40:07 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	get_map_size(int fd, t_game *game)
 	del(&line);
 	game->map_height = i;
 	if (game->map_height == 1024)
-		ft_puterror("Map is too big\n");
+		ft_puterror_exit("Map is too big\n", game);
 }
 
 // 	3rd function to store map + fill _map

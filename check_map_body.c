@@ -6,7 +6,7 @@
 /*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:00:03 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/16 12:25:56 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/04/16 14:52:29 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_around(char c, int i, int j, t_game *game)
 	char	**m;
 
 	m = game->map;
-	if (i == 0 || i == game->map_height - 1)
+	if (i == 1 || i == game->map_height - 1)
 		check_outside_wall(game->map[i], game);
 	else if (c == '0')
 	{
