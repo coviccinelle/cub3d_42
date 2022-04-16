@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_body.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:00:03 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/16 14:57:33 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/04/16 15:47:36 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	check_outside_wall(char *line, t_game *game)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == '0')
+		if (find_me(line[i], "0NEWS"))
 			ft_puterror_exit("Map is not covered by walls", game);
 		i++;
 	}
