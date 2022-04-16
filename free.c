@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:13:17 by mloubet           #+#    #+#             */
-/*   Updated: 2022/04/13 15:11:31 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/16 11:46:10 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	ft_puterror_exit(char *str, t_game *game)
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
 	ft_putstr_fd("\n", 2);
-	exit_free(game);
 	free_map(game);
 	free_textures(game);
 	if (game->mlx.ptr && game->mlx.img)
