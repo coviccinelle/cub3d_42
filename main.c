@@ -6,7 +6,7 @@
 /*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:51:38 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 15:18:47 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/16 15:51:11 by thi-phng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	main(int ac, char **av)
 
 	game = (t_game){0};
 	init_struct(&game);
+	if (ac != 2)
+		return (EXIT_FAILURE);
 	if (!parsing(ac, av, &game))
 		return (EXIT_FAILURE);
 	init_player(&game);
