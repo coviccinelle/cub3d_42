@@ -6,7 +6,7 @@
 /*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:16:13 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/16 14:39:40 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/04/16 15:36:13 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ int	is_blank(char *line)
 	int	i;
 
 	i = 0;
-//	if (!line)
-//		return (1);
 	while (line[0])
 	{
 		if (line[i] != ' ')
