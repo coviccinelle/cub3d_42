@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stock_bckr_info.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:48:46 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 15:04:35 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/16 13:38:35 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	stock_path(t_game *game, char *line)
 	i = 3;
 	while (line[i] == ' ')
 		i++;
-	if (line[0] == 'N' && line[1] == 'O')
+	if (line[0] == 'N' && line[1] == 'O' && game->img[0].path == NULL)
 		game->img[0].path = ft_strdup(&line[i]);
-	else if (line[0] == 'S' && line[1] == 'O')
+	else if (line[0] == 'S' && line[1] == 'O' && game->img[1].path == NULL)
 		game->img[1].path = ft_strdup(&line[i]);
-	else if (line[0] == 'W' && line[1] == 'E')
+	else if (line[0] == 'W' && line[1] == 'E' && game->img[2].path == NULL)
 		game->img[2].path = ft_strdup(&line[i]);
-	else if (line[0] == 'E' && line[1] == 'A')
+	else if (line[0] == 'E' && line[1] == 'A' && game->img[3].path == NULL)
 		game->img[3].path = ft_strdup(&line[i]);
 }
 

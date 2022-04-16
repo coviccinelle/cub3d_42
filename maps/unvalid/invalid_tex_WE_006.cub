@@ -1,8 +1,8 @@
 R 100 700
-WE ./textures/greystone.xpmpng
+WE ./visual/coll.xpmpng
 SO ./visual/exit.xpm
 EA ./visual/coll.xpm
-NO ./textures/wood.xpm
+NO ./visual/wall.xpm
 
 C 055,000,160
 F 100,100,100

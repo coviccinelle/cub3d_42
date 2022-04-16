@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:33:04 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 11:33:02 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/16 13:34:22 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	parsing(int ac, char **av, t_game *game)
 	if (check_map_file_name(ac, av, fd))
 		return (0);
 	stock_bckr_info(game, fd, line);
+	if (line)
+		free(line);
 	stock_map(game, fd);
 	check_map_body(game);
 	close(fd);

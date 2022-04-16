@@ -1,5 +1,5 @@
 R 100 700
-NO ./textures/redbrick.xpm
+NO ./visual/wall.xpm
 EA ./visual/coll.xpm
 WE ./visual/wall_big_yellow_duck.xpm
 
@@ -21,4 +21,4 @@ F 100,100,100
 11111111111111111
 
 
-SO ./textures/greystone.xpm
+SO ./visual/coll.xpm

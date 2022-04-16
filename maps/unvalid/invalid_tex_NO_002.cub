@@ -1,5 +1,5 @@
 R 100 700
-N ./textures/greystone.xpm
+N ./visual/coll.xpm
 SO ./visual/exit.xpm
 EA ./visual/coll.xpm
 WE ./visual/wall_big_yellow_duck.xpm

@@ -1,5 +1,5 @@
 R 100 700
-N ./textures/greystone.xpm
+N ./visual/coll.xpm
 NO ./visual/wall.xpm
 SO ./visual/exit.xpm
 EA ./visual/coll.xpm

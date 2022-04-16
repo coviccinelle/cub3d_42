@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   other.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:10:27 by mloubet           #+#    #+#             */
-/*   Updated: 2022/04/13 15:21:07 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/16 13:03:37 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,21 @@ void	exception(t_game *game, char *str, int *i)
 	}
 }
 
-int	atoi_bis(int *i, int nbr, char *str)
+int	atoi_bis(int *i, int nbr, char *str, t_game *game)
 {
+	int	nb_chiffres;
+
+	nb_chiffres = 0;
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
 		nbr = nbr * 10 + str[*i] - '0';
 		(*i)++;
+		nb_chiffres++;
+	}
+	if (nb_chiffres != 3)
+	{	
+		free(str);
+		ft_puterror_exit("RGB value must be 3 numbers per R G B top", game);
 	}
 	return (nbr);
 }
@@ -39,19 +48,19 @@ int	atoi_i_pars(char *str, int *i, t_game *game)
 
 	nbr = 0;
 	sign = 1;
+	exception(game, str, i);
 	while (str[*i] && ((str[*i] >= 9 && str[*i] <= 13) || \
 	str[*i] == ' ' || str[*i] == ','))
 		(*i)++;
-	exception(game, str, i);
+	//exception(game, str, i);
 	if (str[*i] == '+' || str[*i] == '-')
 	{
-		if (str[*i] == '-')
-			sign = -1;
-		(*i)++;
+		free(str);
+		ft_puterror_exit("RGB value must be without +- or else", game);
 	}
 	mark = *i;
 	while (str[*i] >= '0' && str[*i] <= '9')
-		nbr = atoi_bis(i, nbr, str);
+		nbr = atoi_bis(i, nbr, str, game);
 	if (mark == *i)
 		return (-1);
 	game->o = (*i);
