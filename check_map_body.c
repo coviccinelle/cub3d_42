@@ -6,7 +6,7 @@
 /*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 19:00:03 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/16 14:52:29 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/04/16 14:57:33 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	check_around(char c, int i, int j, t_game *game)
 		check_outside_wall(game->map[i], game);
 	else if (c == '0')
 	{
-			printf("m[%d][%d] = %d et m[%d][%d] = %d \n\n", i + 1, j, m[i + 1][j], i - 1, j, m[i - 1][j]);
 		if (!is_0(m[i + 1][j]) || !is_0(m[i - 1][j]) || \
 		(!is_0(m[i][j + 1])) || (!is_0(m[i][j - 1])) || \
 		(!is_0(m[i + 1][j - 1])) || !is_0(m[i + 1][j + 1]) || \
@@ -70,7 +69,6 @@ void	check_around(char c, int i, int j, t_game *game)
 	}
 	if (find_me(c, "NEWS"))
 	{
-			printf("m[%d][%d] = %d et m[%d][%d] = %d \n\n", i + 1, j, m[i + 1][j], i - 1, j, m[i - 1][j]);
 		if (is_err(m[i + 1][j]) || is_err(m[i - 1][j]) || \
 		is_err(m[i][j + 1]) || is_err(m[i][j - 1]) || \
 		is_err(m[i + 1][j - 1]) || is_err(m[i + 1][j + 1]) || \
