@@ -6,7 +6,7 @@
 /*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:10:27 by mloubet           #+#    #+#             */
-/*   Updated: 2022/04/16 13:03:37 by mloubet          ###   ########.fr       */
+/*   Updated: 2022/04/16 15:20:11 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@ void	exception(t_game *game, char *str, int *i)
 	{
 		free(str);
 		ft_puterror_exit("Wrong char in map header", game);
+	}
+	int j = -1;
+	int cnt = 0;
+	while (str[++j])
+	{
+		if (str[j] == ',' )
+			cnt++;
+	}
+	if (cnt != 2)
+	{
+		free(str);
+		ft_puterror_exit("parsing error trop de virgules", game);
 	}
 }
 
