@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_utils_mlx.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thi-phng <thi-phng@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mloubet <mloubet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:47:26 by thi-phng          #+#    #+#             */
-/*   Updated: 2022/04/13 15:11:55 by thi-phng         ###   ########.fr       */
+/*   Updated: 2022/04/16 11:50:25 by mloubet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ void	load_textures(t_game *game)
 		game->img[i].img = mlx_xpm_file_to_image(game->mlx.ptr, \
 		game->img[i].path, &game->img[i].width, &game->img[i].height);
 		if (!(game->img[i].img))
-		{
-			printf("Error\nImage not found: %s\n", game->img[i].path);
-			exit_free(game);
-		}
+			ft_puterror_exit(game->img[i].path, game);
 		game->img[i].add = mlx_get_data_addr(game->img[i].img, \
 		&game->img[i].bits_per_pixel, &game->img[i].line_length, \
 		&game->img[i].endian);
