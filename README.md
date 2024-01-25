@@ -1,6 +1,8 @@
 # 🎮 **cub3D** - _My First RayCaster with miniLibX_
 [3D game coding in C] 
 
+![til](https://github.com/coviccinelle/cub3d_42/blob/newwww/cub_3d.gif)
+
 ## Goals
 
 This project aims to enhance fundamental programming skills, including rigor, C language proficiency, basic algorithms, and information research. As a graphic design project, cub3D provides an opportunity to improve skills in working with windows, colors, events, and shape filling. It serves as a playground to explore playful applications of mathematics without delving into the specifics.
